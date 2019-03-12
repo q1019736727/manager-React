@@ -1,48 +1,35 @@
 import React, {Component} from 'react';
-import {Menu, Icon} from 'antd';
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+//router
+import {BrowserRouter as Router,HashRouter, Route} from "react-router-dom";
+import routes from './router'
+import Login from './components/login'
+import Home from './components/home'
 
 class App extends Component {
-    constructor() {
-        super()
-    }
-    handleClick = (e) => {
-        console.log('click ', e);
-    }
-    render() {
-        return (
-            <div className="App">
-                <Menu
-                    onClick={this.handleClick}
-                    style={{ width: 256 }}
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
-                    mode="inline"
-                >
-                    <SubMenu key="sub2" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-                        <Menu.Item key="1-9">Option 9</Menu.Item>
-                        <Menu.Item key="1-10">Option 10</Menu.Item>
-                        <Menu.Item key="1-11">Option 11</Menu.Item>
-                        <Menu.Item key="1-12">Option 12</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="sub3" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-                        <Menu.Item key="2-9">Option 9</Menu.Item>
-                        <Menu.Item key="2-10">Option 10</Menu.Item>
-                        <Menu.Item key="2-11">Option 11</Menu.Item>
-                        <Menu.Item key="2-12">Option 12</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="sub4" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-                        <Menu.Item key="3-9">Option 9</Menu.Item>
-                        <Menu.Item key="3-10">Option 10</Menu.Item>
-                        <Menu.Item key="3-11">Option 11</Menu.Item>
-                        <Menu.Item key="3-12">Option 12</Menu.Item>
-                    </SubMenu>
-                </Menu>
-            </div>
-        );
-    }
+  constructor() {
+    super()
+  }
+  render() {
+    return (
+      <div>
+        首页
+        {this.props.children}
+      </div>
+    );
+  }
 }
 
-export default App;
+export default class Main extends Component {
+  render() {
+    return (
+      /*这里的 exact 要加上，不然切换有问题*/
+      <HashRouter>
+        <div>
+          <Route exact path="/" component={App}></Route>
+          <Route path='/login' component={Login}></Route>
+          <Route path='/home' component={Home}></Route>
+        </div>
+      </HashRouter>
+    )
+  }
+}
