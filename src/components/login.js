@@ -12,7 +12,7 @@ class login extends React.Component {
     return (
       <div>
         我是登录页面
-        <button onClick={this.clickLogin}>点击登录</button>
+        <button onClick={this.clickLogin.bind(this)}>点击登录</button>
       </div>
     )
   }

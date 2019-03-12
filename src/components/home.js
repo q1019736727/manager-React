@@ -1,15 +1,27 @@
 import React,{Component} from 'react'
 import {Menu, Icon} from 'antd';
-
+import {Route} from "react-router-dom";
+import topNav from './home/topNav'
+import buttomNav from './home/buttomNav'
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 class home extends Component{
+    constructor(){
+        super()
+    }
+    state = {
+        seleName: topNav
+    }
     handleClick = (e) => {
         console.log('click ', e);
+        this.setState({
+            seleName: buttomNav
+        })
     }
     render(){
         return(
             <div>
+                <Route obj={{name:'你好'}} component={this.state.seleName}></Route>
                 <Menu
                     onClick={this.handleClick}
                     style={{ width: 256 }}
