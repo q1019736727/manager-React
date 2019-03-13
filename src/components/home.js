@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {Menu, Icon} from 'antd';
-import {Route} from "react-router-dom";
+import {Route,Switch,Redirect,Link} from "react-router-dom";
 import TopNav from './home/topNav'
 import './style/home.scss'
+import House from './home/house'
+import Bind from './home/building'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -34,6 +36,16 @@ class home extends Component {
   }
   handleClick = (e) => {
     console.log('click ', e);
+    //不用push而用replace是为了防止产生死循环
+    if ((e.keyPath[1])%2===0) {
+      this.props.history.replace({
+        pathname:'/home/house'
+      })
+    }else {
+      this.props.history.replace({
+        pathname:'/home/bind'
+      })
+    }
 
   }
 
@@ -53,12 +65,15 @@ class home extends Component {
             {this.state.menuList.map((item, index) => {
               return (<SubMenu key={index} title={<span><Icon type="setting"/><span>{item.title}</span></span>}>
                 {item.menus.map((menu, menuIndx) => {
-                  return <Menu.Item key={index + '-' + menuIndx}>{menu}</Menu.Item>
+                  return(
+                    <Menu.Item key={index + '-' + menuIndx}>{menu}</Menu.Item>
+                  )
                 })}
               </SubMenu>)
             })}
           </Menu>
-          <Route></Route>
+          <Route path={'/home/house'} component={House}></Route>
+          <Route path={'/home/bind'} component={Bind}></Route>
         </div>
       </div>
     )

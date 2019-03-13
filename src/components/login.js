@@ -13,14 +13,16 @@ class login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.history.push({
-      pathname:`/home/id=${3}`,
-
+      pathname: `/home/id=${3}`,
       //（在刷新页面的时候，参数丢失。）
-      query:{
+      //数据未被加密
+      query: {
         id: 133
       },
-      state:{
-        haha:111
+      //（在刷新页面的时候，参数丢失。）
+      //数据加密了的
+      state: {
+        haha: 111
       }
     })
   }
@@ -31,7 +33,8 @@ class login extends React.Component {
         <div className="loginWrapper">
           <Form onSubmit={this.handleSubmit} className="login-form">
             <Form.Item>
-              <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="Username"/>
+              <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                     placeholder="Username"/>
             </Form.Item>
             <Form.Item>
               <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"

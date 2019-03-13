@@ -32,7 +32,7 @@ export default class Main extends Component {
         <div>
           {/*<Route exact path="/" component={App}></Route>*/}
           <Route exact path='/' component={Login}></Route>
-          <Route path='/home/:id' component={Home}>
+          <Route path='/home' component={Home}>
 
           </Route>
         </div>
