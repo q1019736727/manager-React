@@ -1,18 +1,49 @@
 import React, {Component} from 'react'
+import {
+  Form, Icon, Input, Button, Checkbox,
+} from 'antd';
+import './style/login.scss'
 
 class login extends React.Component {
-  constructor(){
+  constructor() {
     super()
 
   }
-  clickLogin() {
-    this.props.history.push('/home')
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.history.push({
+      pathname:`/home/id=${3}`,
+
+      //（在刷新页面的时候，参数丢失。）
+      query:{
+        id: 133
+      },
+      state:{
+        haha:111
+      }
+    })
   }
+
   render() {
     return (
-      <div>
-        我是登录页面
-        <button onClick={this.clickLogin.bind(this)}>点击登录</button>
+      <div id="Login">
+        <div className="loginWrapper">
+          <Form onSubmit={this.handleSubmit} className="login-form">
+            <Form.Item>
+              <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="Username"/>
+            </Form.Item>
+            <Form.Item>
+              <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                     placeholder="Password"/>
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-form-button">
+                登录
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     )
   }

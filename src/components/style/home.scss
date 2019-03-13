@@ -1,0 +1,42 @@
+
+
+.homeWrapper{
+  width: 200px;
+  .sliderBar{
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+
+.topNav{
+  height: 60px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  >span{
+    display: inline-block;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 50px;
+  }
+  .userInfo{
+    position: absolute;
+    right: 50px;
+    top: 0;
+    height: 100%;
+    span{
+      font-size: 13px;
+      display: inline-block;
+      vertical-align: center;
+      line-height: 60px;
+    }
+    a{
+      font-size: 13px;
+      color: #46a1ff;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
