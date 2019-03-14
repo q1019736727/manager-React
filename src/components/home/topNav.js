@@ -2,11 +2,15 @@ import React, {Component} from 'react'
 import '../style/home.scss'
 
 class topNav extends Component {
+  constructor(props){
+    super(props)
+    console.log(props)
+  }
   backLogin(){
     console.log(this.props)
-    // this.props.history.push({
-    //   pathname:'/'
-    // })
+    this.props.history.push({
+      pathname:'/'
+    })
   }
   render() {
     return (
