@@ -16,9 +16,9 @@ class home extends Component {
   componentDidMount(){
     console.log(this.props.location)
     console.log(this.props.match)
-
   }
   state = {
+    countNum: 0,
     menuList: [
       {title: '停车缴费管理', menus: ['缴费订单', '结算商户设置']},
       {title: '停前端显示配置', menus: ['Banner配置', '公告管理']},
@@ -36,8 +36,11 @@ class home extends Component {
   }
   handleClick = (e) => {
     console.log('click ', e);
+    this.setState({
+      countNum: this.state.countNum + 1
+    })
     //不用push而用replace是为了防止产生死循环
-    if ((e.keyPath[1])%2===0) {
+    if (this.state.countNum%2===0) {
       this.props.history.replace({
         pathname:'/home/house'
       })
@@ -54,26 +57,34 @@ class home extends Component {
       <div>
         <TopNav></TopNav>
         <div className='homeWrapper'>
-          <Menu
-            className='sliderBar'
-            onClick={this.handleClick}
-            style={{width: 256}}
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            mode="inline"
-          >
-            {this.state.menuList.map((item, index) => {
-              return (<SubMenu key={index} title={<span><Icon type="setting"/><span>{item.title}</span></span>}>
-                {item.menus.map((menu, menuIndx) => {
-                  return(
-                    <Menu.Item key={index + '-' + menuIndx}>{menu}</Menu.Item>
-                  )
-                })}
-              </SubMenu>)
-            })}
-          </Menu>
-          <Route path={'/home/house'} component={House}></Route>
-          <Route path={'/home/bind'} component={Bind}></Route>
+          <div className='menuWrapper'>
+            <Menu
+              className='sliderBar'
+              onClick={this.handleClick}
+              style={{width: 256}}
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              mode="inline"
+            >
+              {this.state.menuList.map((item, index) => {
+                return (<SubMenu key={index} title={<span><Icon type="setting"/><span>{item.title}</span></span>}>
+                  {item.menus.map((menu, menuIndx) => {
+                    return(
+                      <Menu.Item key={index + '-' + menuIndx}>{menu}</Menu.Item>
+                    )
+                  })}
+                </SubMenu>)
+              })}
+            </Menu>
+          </div>
+          <div className='detailPage'>
+            <Switch>
+              /*重定向*/
+              <Redirect exact path="/home" to="/home/house"></Redirect>
+              <Route path={'/home/house'} component={House}></Route>
+              <Route path={'/home/bind'} component={Bind}></Route>
+            </Switch>
+          </div>
         </div>
       </div>
     )

@@ -4,7 +4,7 @@ export default class Build extends Component{
   render(){
     return(
       <div>
-        我是绑定的房产我是绑定的房产我是绑定的房产
+        绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息
       </div>
     )
   }

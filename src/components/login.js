@@ -13,7 +13,7 @@ class login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.history.push({
-      pathname: `/home/id=${3}`,
+      pathname: `/home`,
       //（在刷新页面的时候，参数丢失。）
       //数据未被加密
       query: {

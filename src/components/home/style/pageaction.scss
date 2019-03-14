@@ -1,0 +1,37 @@
+#pageination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  @mixin hoverP {
+    cursor: pointer;
+  }
+  span {
+    @include hoverP;
+    width: 45px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    &:nth-child(2),&:last-child,&:nth-last-child(2){
+      border-left: none;
+    }
+
+  }
+  button {
+    @include hoverP;
+    height: 38px;
+    width: 45px;
+    border: 1px solid #cccccc;
+    border-left: none;
+    &.activity {
+      background: #cccccc;
+    }
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+}

@@ -1,0 +1,50 @@
+$main_color:#3f9eff;
+
+#house {
+  padding-left: 10px;
+  padding-top: 10px;
+  table {
+    min-width: 900px;
+    border-collapse: collapse; //合并空隙
+    tr {
+      font-size: 14px;
+      color: #999999;
+      &:nth-child(even) {
+        background: #eee;
+      }
+       th {
+        border: 1px solid #ccc;
+        color: black;
+        line-height: 60px;
+      }
+       td {
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 25px;
+        padding: 10px 15px;
+        &:nth-child(1) {
+          max-width: 150px;
+        }
+        &:last-child {
+          min-width: 100px;
+        }
+         button {
+          padding: 5px 10px;
+          color: $main_color;
+          background: white;
+          border: 1px solid #ccc;
+          &:last-child {
+            color: red;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+}

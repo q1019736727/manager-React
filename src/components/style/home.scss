@@ -1,10 +1,22 @@
 
 
 .homeWrapper{
-  width: 200px;
-  .sliderBar{
-    font-size: 14px;
-    width: 100%;
+  display: flex;
+  justify-content: start;
+  .menuWrapper{
+    background: #f5f5f5;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    .sliderBar{
+      font-size: 14px;
+      width: 330px;
+      background: #f5f5f5;
+      SubMenu{
+        background: #f5f5f5;
+      }
+    }
+  }
+  .detailPage{
   }
 }
 
