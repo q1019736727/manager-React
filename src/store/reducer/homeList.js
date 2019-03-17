@@ -1,7 +1,7 @@
-
+import {ADD_LIST,REDUCE_LIST} from '../actionType'
 
 export default function homelistReducer(state = {
-  menus:[
+  menus: [
     {title: '停车缴费管理', menus: ['缴费订单', '结算商户设置']},
     {title: '停前端显示配置', menus: ['Banner配置', '公告管理']},
     {title: '商户管理', menus: ['客户绑定信息审核', '客户信息管理']},
@@ -26,12 +26,13 @@ export default function homelistReducer(state = {
     {data: ['成都合智商务服务有限公司彭州分公司', '逸景苑', '16-1-4-2', '李可可', '15886432554', '待处理', '2019-03-08 10:33:23']},
   ]
 
-},action){
+}, action) {
   switch (action.type) {
-    case 'addList':
-      return {...state,age:state.age+action.payload}
-    case 'removeList':
-      return {...state,age:state.age+action.payload}
+    case ADD_LIST:
+      return Object.assign({},state,{tableDta : state.tableDta.concat([action.payload])})
+    case REDUCE_LIST:
+      state.tableDta.splice(0,1)
+      return {...state, tableDta: state.tableDta}
     default:
       return state
   }

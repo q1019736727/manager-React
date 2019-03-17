@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import '../style/home.scss'
 import {connect} from 'react-redux'
 import silder from "../../store/reducer/slider";
-
+import {ADD_AGE} from '../../store/actionType'
 class topNav extends Component {
   constructor(props){
     super(props)
@@ -35,7 +35,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return{
-    add:(age)=>dispatch({type:'addAge',payload:age})
+    add:(age)=>dispatch({type:ADD_AGE,payload:age})
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(topNav)
