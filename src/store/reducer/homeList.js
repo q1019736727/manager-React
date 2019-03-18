@@ -31,7 +31,7 @@ export default function homelistReducer(state = {
     case ADD_LIST:
       return Object.assign({},state,{tableDta : state.tableDta.concat([action.payload])})
     case REDUCE_LIST:
-      state.tableDta.splice(0,1)
+      state.tableDta.splice(action.payload,1)
       return {...state, tableDta: state.tableDta}
     default:
       return state

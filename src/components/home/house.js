@@ -20,6 +20,11 @@ class House extends Component {
   componentDidMount(){
 
   }
+  addListitem(){
+    this.props.AddList({
+      data: ['我是新增的数据', '😃哈哈', '16-1-4-2', '时间的话', '15886432554', '处理处理', '2019-03-08 10:33:23']
+    })
+  }
   render() {
     return (
       <div id="house">
@@ -42,8 +47,8 @@ class House extends Component {
                   )
                 })}
                 <td>
-                  <button onClick={this.props.AddList}>增加</button>
-                  <button onClick={this.props.ReduceList}>删除</button>
+                  <button onClick={this.addListitem.bind(this)}>增加</button>
+                  <button onClick={ () => this.props.ReduceList(index) }>删除</button>
                 </td>
               </tr>
             )
