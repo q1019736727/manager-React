@@ -59,8 +59,8 @@ class home extends Component {
         {/*只有通过这种方式以Route形式才能拿到路由,及在TopNav组件中能拿到this.props.history*/}
         {/*<Route component={TopNav}></Route>*/}
 
-        {/*多级套用并且还要传递数据*/}
-        <Route render={props => <TopNav {...props} name='哈哈哈😄'/>}></Route>
+        {/*多级套用并且还要传递数据,拿取路由*/}
+        <Route render={props => <TopNav {...props} handleAction={(msg)=>{ alert(msg) }} name='哈哈哈😄'/>}></Route>
         {this.props.userInfo.age}
         <div className='homeWrapper'>
           <div className='menuWrapper'>

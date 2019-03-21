@@ -15,6 +15,9 @@ class topNav extends Component {
   addAge(){
     this.props.add(10)
   }
+  alertAction(){
+    this.props.handleAction('你好哈哈哈😃')
+  }
   render() {
     return (
       <div className="topNav">
@@ -23,6 +26,7 @@ class topNav extends Component {
         <div className="userInfo">
           <span>欢迎你{this.props.userInfo.name}</span>
           &emsp;<a onClick={this.backLogin.bind(this)}>退出</a>
+          <button onClick={this.alertAction.bind(this)}>让父组件alert</button>
         </div>
       </div>
     )
