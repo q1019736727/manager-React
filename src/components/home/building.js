@@ -6,7 +6,9 @@ export default class Build extends Component{
     return(
       <div>
         <InfoContext.Consumer>
-          {(data)=>{console.log(data)}}
+          {(info)=>{
+            return <div>{info.name} {info.age}</div>
+          }}
         </InfoContext.Consumer> 
       </div>
     )
