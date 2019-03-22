@@ -61,6 +61,7 @@ class home extends Component {
 
         {/*多级套用并且还要传递数据,拿取路由*/}
         <Route render={props => <TopNav {...props} handleAction={(msg)=>{ alert(msg) }} name='哈哈哈😄'/>}></Route>
+
         {this.props.userInfo.age}
         <div className='homeWrapper'>
           <div className='menuWrapper'>
@@ -72,17 +73,17 @@ class home extends Component {
               defaultOpenKeys={['sub1']}
               mode="inline"
             >
-              {this.props.menuList.map((item, index) => {
-                return (<SubMenu key={index} title={<span><Icon type="setting"/><span>{item.title}</span></span>}>
-                  {item.menus.map((menu, menuIndx) => {
-                    return(
-                      <Menu.Item key={index + '-' + menuIndx}>{menu}</Menu.Item>
-                    )
-                  })}
-                </SubMenu>)
-              })}
-            </Menu>
-          </div>
+                {this.props.menuList.map((item, index) => {
+                  return (<SubMenu key={index} title={<span><Icon type="setting"/><span>{item.title}</span></span>}>
+                    {item.menus.map((menu, menuIndx) => {
+                      return(
+                        <Menu.Item key={index + '-' + menuIndx}>{menu}</Menu.Item>
+                      )
+                    })}
+                  </SubMenu>)
+                })}
+              </Menu>
+            </div>
           <div className='detailPage'>
             <Switch>
               /*重定向*/

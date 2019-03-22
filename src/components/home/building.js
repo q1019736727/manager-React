@@ -1,10 +1,13 @@
 import React,{Component} from 'react'
+import InfoContext from '../../context'
 
 export default class Build extends Component{
   render(){
     return(
       <div>
-        绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息绑定信息
+        <InfoContext.Consumer>
+          {(data)=>{console.log(data)}}
+        </InfoContext.Consumer> 
       </div>
     )
   }
